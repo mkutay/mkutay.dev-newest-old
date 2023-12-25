@@ -55,7 +55,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: https://mkutay.dev
+      url: "https://mkutay.dev"
     runs-on: ubuntu-latest
     needs: build
     steps:
