@@ -16,4 +16,5 @@ With a friend, I created an active [blog](https://cookieblog.net) that discusses
 
 \</moreOrLessCopyPastedTextFromLinkedIn\>
 
-If you have anything to say, please email me at [hello@mkutay.dev](mailto:hello@mkutay.dev). Even though I won't be able to respond quickly, I read every email I get, and I will definitely get back to you. Cheers!
+If you have anything to say, please email me at [hello@mkutay.dev](mailto:hello@mkutay.dev). Even though I won't be able to respond quickly, I read every email I get, and I will definitely get back to you. Or you can find me on [Fediverse (Mastodon)](https://social.vivaldi.net/@kutay), [LinkedIn](https://www.linkedin.com/in/mehmet-kutay-bozkurt-6837b7241/), 
+or [Instagram](https://www.instagram.com/mkutayboz/).

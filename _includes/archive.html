@@ -11,6 +11,12 @@
       <time datetime="{{ post.date | date_to_xmlschema }}">
         {{ post.date | date: "%Y-%m-%d" }}
       </time>
+      {%- if post.layout == "post" -%}
+        <text>(Post)</text>
+      {%- endif -%}
+      {%- if post.layout == "acad" -%}
+        <text>(Academia)</text>
+      {%- endif -%}
       <a href="{{ post.url | relative_url }}">
         {{ post.title }}
       </a>

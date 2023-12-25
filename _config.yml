@@ -13,13 +13,14 @@ google_analytics: G-Z62CEK3M0E
 
 navigation: # file, url, title
   - {file: "about.md", url: "/about/", title: "About"}
+  - {file: "academia.html", url: "/academia/", title: "Academia"}
   - {file: "archive.html", url: "/archive/", title: "Archive"}
 
 external: # for available icons see fontawesome.com/icons
   # - {title: "Mail", icon: "envelope", url: "mailto:mkutaybzkrt01101011@gmail.com", include_title: false}
-  - {title: "Github", icon: "github", url: "https://github.com/MKutay", include_title: false}
+  - {title: "Github", icon: "github", url: "https://github.com/mkutay", include_title: false}
   - {title: "Email Me", icon: "envelope", url: "mailto:hello@mkutay.dev", include_title: true}
-  - {title: "Sponsor Me", icon: "heart", url: "https://github.com/sponsors/MKutay?o=esb", include_title: true}
+  - {title: "Sponsor Me", icon: "heart", url: "https://github.com/sponsors/mkutay?o=esb", include_title: true}
   - {title: "Feed", icon: "rss", url: "https://blog.mkutay.dev/feed.xml", include_title: true}
 
 

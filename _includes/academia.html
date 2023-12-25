@@ -1,18 +1,18 @@
 {%- assign posts = paginator.posts | default: site.posts -%}
 <!-- this shows all of the excerpts on the home page -->
 {% for post in posts %}
-  {% if post.layout == "post" %}
-  <article>
-    {% include excerpt-meta.html post=post %} <!-- this is for the title and the date of the post -->
+  {% if post.layout == "acad" %}
+    <article>
+      {% include excerpt-meta.html post=post %} <!-- this is for the title and the date of the post -->
 
-    {{ post.excerpt }}
+      {{ post.excerpt }}
 
-    <div class="more">
-      <a href="{{ post.url | relative_url }}">
-        read more
-      </a>
-    </div>
-  </article>
+      <div class="more">
+        <a href="{{ post.url | relative_url }}">
+          read more
+        </a>
+      </div>
+    </article>
   {% endif %}
 {% endfor %}
 
