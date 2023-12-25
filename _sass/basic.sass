@@ -1,0 +1,92 @@
+body
+  background: $base
+  color: $text
+  font-family: $font-family
+  font-weight: $font-weight
+  font-size: $font-size
+  line-height: $line-height
+  margin: 0
+  min-height: 100vh
+  -webkit-text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+h1, h2, h3, h4, h5, h6
+  font-weight: $heading-weight
+
+b, strong, th
+  font-weight: $font-weight + 200
+
+p
+  text-align: justify
+  font-size: 1.1em
+
+a
+  color: $blue
+  text-decoration: inherit
+  &:hover
+    text-decoration: underline
+
+header a, footer a, aside a
+  color: inherit
+
+header time
+  color: $overlay2
+
+hr
+  border: 1px solid $surface0
+  margin: 2em 0
+
+article:not(:last-of-type)
+  border-bottom: 1px solid $surface0
+
+blockquote
+  background: $crust
+  border-left: 3px solid $maroon
+  padding: 1px 1.5em
+  opacity: .75
+
+blockquote, figure
+  margin: 1em 0
+
+img
+  margin: .5em 0
+
+li
+  margin: .25em 0
+
+img
+  border-radius: 2px
+  max-width: 100%
+  height: auto
+
+table
+  display: inline-block
+  max-width: 100%
+  overflow-y: scroll
+  border-spacing: 1px
+  border-radius: 2px
+  box-shadow: 0 0 0 1px $surface1 inset
+
+th, td
+  padding: .5em 1em
+  box-shadow: 0 0 0 1px $surface1
+
+tr:hover, tr:nth-child(odd) td
+  background: $mantle
+
+pre
+  background: $maroon
+  border-radius: 2px
+  font-size: .8em
+  margin: 1.5em 0
+  padding: .8em 1.2em
+  overflow-x: auto
+
+\:not(pre) > code
+  font-size: .9em
+  background: $lavender
+  opacity: .7
+  border-radius: 2px
+  margin: 0 .1em
+  padding: .2em .4em

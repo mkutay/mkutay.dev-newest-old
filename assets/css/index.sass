@@ -1,0 +1,17 @@
+---
+---
+
+@import index, font, basic, layout, classes
+
+@media (min-width: 40em)
+  body > header, body > article, body > footer
+    padding: 1.75em calc(40% - 17em)
+
+body > header
+  box-shadow: 0 0 .6em rgba($base, 0.04)
+  border-bottom: 1px solid $surface0
+
+body > footer
+  box-shadow: 0 0 .6em rgba($base, 0.04) inset
+  border-top: 1px solid $surface0
+  opacity: .9
