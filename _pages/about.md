@@ -4,6 +4,8 @@ layout: post
 permalink: /about/
 ---
 
+You can find my CV [here](/assets/pdfs/mehmet-kutay-bozkurt.pdf).
+
 \<moreOrLessCopyPastedTextFromLinkedIn\>
 
 I am a high school student getting an education as an IB student, and I am a person who loves to code. I created dozens of projects with C, C++, Python, and JavaScript. I competed and still compete in olympiads in informatics, for which I was on the national team for two years.
