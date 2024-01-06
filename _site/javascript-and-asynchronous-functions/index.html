@@ -1,0 +1,149 @@
+<!-- this file is for every page type, hence the name default -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+    
+      JavaScript and Asynchronous Functions |
+    
+    Deterministic Blog
+  </title>
+
+  
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z62CEK3M0E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z62CEK3M0E');
+</script>
+  
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Mehmet Kutay Bozkurt">
+  <meta name="generator" content="Jekyll v3.9.3">
+  <link rel="canonical" href="https://mkutay.dev/javascript-and-asynchronous-functions/">
+
+  <link rel="stylesheet" href="/assets/css/index.css"> <!-- css without the frame -->
+
+  
+    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Deterministic Blog">
+  
+
+</head>
+
+<body>
+
+  
+
+  <header>
+    <a href="/" class="title">Deterministic Blog</a>
+    <nav><a href="/about/">About</a><a href="/academia/">Academia</a><a href="/archive/">Archive</a></nav>
+
+  </header>
+
+  <article>
+  <!-- this is for the title of the post and the date-time of the post -->
+<header>
+  <h1>
+    <a href="/javascript-and-asynchronous-functions/">
+      JavaScript and Asynchronous Functions
+    </a>
+  </h1><time datetime="2023-05-26T00:00:00+03:00">
+    May 26, 2023
+  </time>
+</header>
+  <p>Hello everyone! In this second post of my blog, I am going to explain an error I stumbled upon last week, how I solved it, and asynchronous functions in Javascript.</p>
+
+<p>Last week, while I was improving my <a href="https://www.mkutay.dev/">website</a>, I just couldn’t figure something out. I mean, it wasn’t even a bug because there was nothing that the bug could be on; there was no code that was working in the slightest. I was trying to create an RSS feed extractor on my website so that anyone could look to see if there were any new posts on the Deterministic Blog (hey, we are on that right now) and on the <a href="https://cookieblog.net/">Cookie Blog</a>.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">feedOutput</span> <span class="o">=</span> <span class="nx">getFeed</span><span class="p">(</span><span class="nx">blogInfo</span><span class="p">.</span><span class="nx">feed</span><span class="p">,</span> <span class="nx">blogName</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">feedOutput</span><span class="p">);</span>
+<span class="nx">render</span><span class="p">(</span><span class="nx">feedOutput</span><span class="p">);</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">html</span> <span class="o">=</span> <span class="s2">`&lt;p&gt;&lt;span class="purple"&gt;Latest blog posts for </span><span class="p">${</span><span class="nx">blogName</span><span class="p">}</span><span class="s2">:&lt;/span&gt;&lt;pre&gt;\n&lt;/pre&gt;`</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="nx">feedUrl</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">str</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">DOMParser</span><span class="p">().</span><span class="nx">parseFromString</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text/xml</span><span class="dl">"</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">items</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">el</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="nx">count</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">itemLink</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">textContent</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">itemTitle</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">attributes</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nx">textContent</span><span class="p">;</span>
+      <span class="nx">html</span> <span class="o">+=</span> <span class="s2">`&lt;p&gt;&lt;a class="shortcut" href="</span><span class="p">${</span><span class="nx">itemLink</span><span class="p">}</span><span class="s2">"&gt;</span><span class="p">${</span><span class="nx">itemTitle</span><span class="p">}</span><span class="s2">&lt;/a&gt;&lt;/p&gt;`</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Couldn't fetch data from feed.xml.</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">html</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">fetch error</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+  <span class="p">});</span>
+
+<span class="nx">html</span> <span class="o">+=</span> <span class="s2">`&lt;/p&gt;`</span><span class="p">;</span>
+<span class="k">return</span> <span class="nx">html</span><span class="p">;</span></code></pre></figure>
+
+<p>So here the first code is from the executor file, where I have all the commands for the website. And the second code is from the helpers file, which has the getFeed function that returns an HTML code to be displayed. In the getFeed function, there is much stuff that you don’t need to know about, like the entirety of the fetch function. You only need to know that it parses RSS feeds of blogs in real-time.</p>
+
+<p>Here started the error: when I ran the code above, there was no useful output, as if the fetch command hadn’t even parsed the feed.</p>
+
+<p><img src="/assets/images/async-funcs/no-output.png" alt="No Output" /></p>
+
+<p>Then, after seeing this, I tried to debug it. I mean, where even was the problem? I tried to console.log the variable “html” in the helpers file and also the result of the getFeed function in the executors file. But I had no luck. If the code was executing as expected, then the error should have been the fetch function, right? So I put console.logs everywhere in the fetch function, and funny enough, it was going perfectly as expected; there weren’t any problems. Even the variable “html” was outputting correctly. I mean, the variable was “magically” resetting right before returning. So, where could the problem be?</p>
+
+<p>It turns out that the fetching and parsing of the RSS feed were taking so much time. It <strong>should</strong> actually take some time, as it is fetching all of the RSS feed from the website (which depends on the internet connection) and parsing it to get only the titles and links of the posts. So, here, right then, I was going crazy. I mean, why am I even coding in Javascript? It is such a ridiculous programming language. Why would the code not finish itself and just continue? <a href="https://www.youtube.com/watch?v=D428G28MZFY&amp;t=27s">It’s frankly ridiculous</a> (actually, that whole video describes my emotions; I decided that I am actually going to listen to its one-hour version while I write this post lol). While I was in the rabbit hole of many StackOverflow posts and different articles, I found the thingamajig of <em>asynchronous functions</em>. So, let’s talk about it.</p>
+
+<p>Asynchronous functions are actually very useful. Asynchronous functions allow the program to start a potentially time-consuming task and still be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has been finished, the program is presented with the result. This time-consuming task is like fetching from a website (like in our case) or accessing the user’s camera or microphone (the program needs to be asynchronous as it needs to wait for the user to answer the prompt). If it weren’t for the asynchronous functions, we would be waiting a while until the long task was finished.</p>
+
+<p>So, returning to our code, the fetch function is asynchronous, which means that the program on runtime doesn’t wait for the fetch to finish, so it goes on with its life and continues to run the code before the fetch function finishes and the variable “html” could be set. Now we found the main problem that was causing us to go down a StackOverflow rabbit hole. To fix it, we just cannot add a timeout right after the fetch function because the timeout function is also asynchronous. We need a better solution. Reveal the curtains, Promise, the promise you made to your friend and never kept.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">html</span> <span class="o">+=</span> <span class="s2">`&lt;/p&gt;`</span><span class="p">;</span>
+    <span class="nx">resolve</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">feedOutput</span> <span class="o">=</span> <span class="nx">getFeed</span><span class="p">(</span><span class="nx">blogInfo</span><span class="p">.</span><span class="nx">feed</span><span class="p">,</span> <span class="nx">blogName</span><span class="p">);</span>
+<span class="nx">feedOutput</span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">html</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">html</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">fetch error&lt;/p&gt;</span><span class="dl">"</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+  <span class="nx">render</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>A Promise is a proxy for a value that is not necessarily known when the promise is created. It allows us to associate handlers with an asynchronous action’s eventual success value or failure reason. Here, in the first part of the code, the Promise allows us to actually make a promise that after a second (after the fetch function is fully completed), we can resolve the “html” variable, which allows us to return the variable inside of the Promise to the executor function on the second part. The feedOutput function is a Promise, if that promise is kept, “then” we can render the “html” to the terminal.</p>
+
+<p>Basically, that’s how I solved this error I came across. I am highly certain that this is not the efficient or “the correct” way to solve my error, but this is the way I did it, and I solved it. As a new Javascript developer, I am learning new things, and this blog will help me share my experiences with all of you. Thank you.</p>
+
+<p>This has been stupid, and I’m out.</p>
+
+</article>
+
+
+  
+    <footer>
+      <div>
+        Made with <b style="color: #f38ba8;">&lt;3</b>
+      </div>
+      <nav><a href="https://github.com/mkutay"><svg aria-label="Github" class="icon">
+      <use xlink:href="/assets/fontawesome/icons.svg#github"></use>
+    </svg></a><a href="mailto:hello@mkutay.dev"><svg aria-label="Email Me" class="icon">
+      <use xlink:href="/assets/fontawesome/icons.svg#envelope"></use>
+    </svg><text style="padding-left: 0.4em">Email Me</text></a><a href="https://github.com/sponsors/mkutay?o=esb"><svg aria-label="Sponsor Me" class="icon">
+      <use xlink:href="/assets/fontawesome/icons.svg#heart"></use>
+    </svg><text style="padding-left: 0.4em">Sponsor Me</text></a><a href="https://mkutay.dev/feed.xml"><svg aria-label="Feed" class="icon">
+      <use xlink:href="/assets/fontawesome/icons.svg#rss"></use>
+    </svg><text style="padding-left: 0.4em">Feed</text></a></nav>
+
+    </footer>
+  
+</body>
+
+</html>
