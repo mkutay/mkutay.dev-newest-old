@@ -7,6 +7,7 @@ excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
 google_analytics: G-Z62CEK3M0E
 repository: mkutay/mkutay.dev
+url: "https://mkutay.dev"
 
 # Layout
 
@@ -18,7 +19,6 @@ navigation: # file, url, title
   - {file: "archive.html", url: "/archive/", title: "Archive"}
 
 external: # for available icons see fontawesome.com/icons
-  # - {title: "Mail", icon: "envelope", url: "mailto:mkutaybzkrt01101011@gmail.com", include_title: false}
   - {title: "Github", icon: "github", url: "https://github.com/mkutay", include_title: false}
   - {title: "Email Me", icon: "envelope", url: "mailto:hello@mkutay.dev", include_title: true}
   - {title: "Sponsor Me", icon: "heart", url: "https://github.com/sponsors/mkutay?o=esb", include_title: true}
