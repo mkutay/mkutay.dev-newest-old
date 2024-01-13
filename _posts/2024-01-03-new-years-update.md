@@ -9,4 +9,14 @@ As you can see, I changed the domain of this blog from _blog.mkutay.dev_ to _mku
 
 Another thing I want to _rant_ about now is **cheating** on school exams. Today I had my chemistry exam (which was on organic chemistry; a lot of memorizing was needed), and a lot of students (my friends also) blatantly cheated. Some of them got up their seats and looked through other students papers, or a group on the back of the class was literally _laughing_, disturbing the entire class. And what did the proctor do? Nothing. Nothing, literally. Worse than that, the proctor shouted and warned people taking chemistry exams who, in simpler terms, didn't care about the exam in any way but had to take it. I'm tired now from studying for two more exams that I'm going to take tomorrow, so I don't have much time. But what is this? Come on. It's actually stupid.
 
+---
+
+Some new updates from Jan 13.
+
+Why do tech workers at tech stores **always** assume that I know literally nothing about technology? I understand that they meet hundreds of people from different knowledge levels, and they have to have an equal level of explanation. However, I am a seventeen-year-old boy who looks like they know a couple things about technology (which I know a lot more than that). But the employee at the store tried to hint at the IMEI of phones (which allow for every device to be numbered and classified) with "emails," but it was not like an analogy; they straight up said that it was an email recognition system.
+
+---
+
+I love designing, both as a hobby and as part of my extended essays and IAs.
+
 Anyway, that's all. Say goodbye for now.
