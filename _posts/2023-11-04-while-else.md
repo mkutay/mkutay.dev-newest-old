@@ -2,7 +2,7 @@
 title: "While Else"
 layout: post
 ---
-In Python, there is something that even the creator of Python despises. The *thing* that I am referring to is the "while, else" statement. Some context is that I was in Cambridge in a computer science course and we had to create some text-based game, and I—unironically—used the forbidden technique, the while else statement. The section of code that uses while else is given below, and for the interested, the full code is at the bottom of the page.
+In Python, there is something that even the creator of Python despises. The *thing* that I am referring to is the "while, else" statement. Some context is that I was in a computer science course and we had to create some text-based game, and I—unironically—used the forbidden technique, the while else statement. The section of code that uses while else is given below, and for the interested, the full code is at the bottom of the page.
 
 
 ```python
