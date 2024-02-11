@@ -8,7 +8,7 @@ b, strong, th { font-weight: 600; }
 
 p { text-align: justify; font-size: 1.1em; }
 
-a { color: #89b4fa; text-decoration: inherit; }
+a { color: #cba6f7; text-decoration: inherit; }
 a:hover { text-decoration: underline; }
 
 header a, footer a, aside a { color: inherit; }
@@ -59,9 +59,9 @@ nav a { margin: 0.5em 0.7em; }
 
 .more { margin: 2em 0 1em; }
 
-.more a { border-radius: 2px; border: 1.5px solid #89b4fa; padding: 0.4em 0.8em; transition: 0.2s background, 0.2s color; }
+.more a { border-radius: 2px; border: 1.5px solid #cba6f7; padding: 0.4em 0.8em; transition: 0.2s background, 0.2s color; }
 
-.more a:hover { color: #1e1e2e; background: #89b4fa; text-decoration: inherit; }
+.more a:hover { color: #1e1e2e; background: #cba6f7; text-decoration: inherit; }
 
 .archive { font-size: 1.1em; }
 
@@ -69,7 +69,7 @@ nav a { margin: 0.5em 0.7em; }
 
 .icon { height: 1em; width: 1em; fill: currentColor; transition: 0.2s color; vertical-align: middle; padding-bottom: 0.2em; }
 
-a:hover .icon { color: #89b4fa; }
+a:hover .icon { color: #cba6f7; }
 
 .full table { display: table; width: 100%; }
 
